@@ -1,0 +1,1 @@
+this is a server REST API for sitemate challenge
