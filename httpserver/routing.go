@@ -8,7 +8,10 @@ import (
 func InitRouter(cfg pkg.EnvConfig, h *Handler) *echo.Echo {
 	r := echo.New()
 
-	r.GET("/", h.Index)
+	r.GET("/posts", h.GetPosts)
+	r.POST("/posts", h.CreatePost)
+	r.PUT("/posts/:id", h.UpdatePost)
+	r.DELETE("/posts/:id", h.DeletePost)
 
 	return r
 }
