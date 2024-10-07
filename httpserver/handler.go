@@ -35,6 +35,7 @@ func (h *Handler) CreatePost(c echo.Context) error {
 	if err := c.Bind(post); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
+	post.ID = int64(len(mockPosts) + 1)
 
 	mockPosts = append(mockPosts, *post)
 
