@@ -4,6 +4,7 @@ golang version 1.22.2
 
 
 1. clone this repo
+2. copy env.sample and create .env file
 2. install dependencies $go mod tidy 
 3. running server with $go run cmd/api/main.go
 4. server running on port 8100
