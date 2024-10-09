@@ -10,18 +10,13 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/sonymuhamad/todo-app/httpserver"
 	"github.com/sonymuhamad/todo-app/pkg"
-	"github.com/sonymuhamad/todo-app/repository"
-	"github.com/sonymuhamad/todo-app/usecase"
 )
 
 // Injectors from httpserver.go:
 
 func InitializeHttpServer() *echo.Echo {
 	envConfig := pkg.LoadEnvConfig()
-	db := provideGormSQLDatabase(envConfig)
-	post := repository.NewPost(db)
-	usecasePost := usecase.NewPost(post)
-	handler := httpserver.NewHandlerWithWire(usecasePost)
+	handler := httpserver.NewHandlerWithWire()
 	echoEcho := provideHttpServer(envConfig, handler)
 	return echoEcho
 }

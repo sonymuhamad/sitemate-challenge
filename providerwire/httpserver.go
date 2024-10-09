@@ -13,12 +13,8 @@ import (
 func InitializeHttpServer() *echo.Echo {
 	wire.Build(
 		pkg.LoadEnvConfig,
-		provideGormSQLDatabase,
-		provideRepository,
-		provideUsecase,
 		httpserver.NewHandlerWithWire,
 		provideHttpServer,
-		//httpserver.InitRouter,
 	)
 
 	return &echo.Echo{}

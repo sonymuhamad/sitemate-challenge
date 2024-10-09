@@ -4,19 +4,15 @@ import (
 	"fmt"
 	"github.com/labstack/echo/v4"
 	"github.com/sonymuhamad/todo-app/model"
-	usecaseInterface "github.com/sonymuhamad/todo-app/pkg/interfaces/usecase"
 	"net/http"
 	"strconv"
 )
 
 type Handler struct {
-	postUsecase usecaseInterface.PostUsecase
 }
 
-func NewHandlerWithWire(postUsecase usecaseInterface.PostUsecase) *Handler {
-	return &Handler{
-		postUsecase: postUsecase,
-	}
+func NewHandlerWithWire() *Handler {
+	return &Handler{}
 }
 
 // Mock data
